@@ -24,7 +24,9 @@ module "lambda" {
   save_course_role_arn = module.iam.save_course_role_arn 
   update_course_role_arn = module.iam.update_course_role_arn 
   delete_course_role_arn = module.iam.delete_course_role_arn 
-  # aws_lambda_permission_api_gateway_source_arn = aws_api_gateway_rest_api.this.execution_arn 
-  # aws_api_gateway_resource_authors_id = aws_api_gateway_resource.authors.id 
-  # aws_api_gateway_resource_authors_path = aws_api_gateway_resource.authors.path 
+  aws_lambda_permission_api_gateway_source_arn = aws_api_gateway_rest_api.this.execution_arn 
+  aws_api_gateway_resource_authors_id = aws_api_gateway_resource.authors.id 
+  aws_api_gateway_resource_authors_path = aws_api_gateway_resource.authors.path 
+  aws_api_gateway_resource_courses_id = aws_api_gateway_resource.courses.id 
+  aws_api_gateway_resource_courses_path = aws_api_gateway_resource.courses.path 
 }
