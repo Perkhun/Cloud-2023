@@ -127,48 +127,48 @@ resource "aws_api_gateway_integration_response" "get_authors" {
   }
 }
 
-# resource "aws_api_gateway_method" "options_authors" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.authors.id
-#   http_method = "OPTIONS"
-#   authorization = "NONE"
-# }
+resource "aws_api_gateway_method" "options_authors" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.authors.id
+  http_method = "OPTIONS"
+  authorization = "NONE"
+}
 
-# resource "aws_api_gateway_method_response" "options_authors" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.authors.id
-#   http_method = aws_api_gateway_method.options_authors.http_method
-#   status_code = "200"
-#   response_models = { "application/json" = "Empty" }
-#   response_parameters = {
-#     "method.response.header.Access-Control-Allow-Origin" = false
-#     "method.response.header.Access-Control-Allow-Headers" = false
-#     "method.response.header.Access-Control-Allow-Methods" = false
-#     "method.response.header.Access-Control-Allow-Credentials" = true
-#   }
-#   depends_on = [aws_api_gateway_method.options_authors]
-# }
+resource "aws_api_gateway_method_response" "options_authors" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.authors.id
+  http_method = aws_api_gateway_method.options_authors.http_method
+  status_code = "200"
+  response_models = { "application/json" = "Empty" }
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Origin" = false
+    "method.response.header.Access-Control-Allow-Headers" = false
+    "method.response.header.Access-Control-Allow-Methods" = false
+    "method.response.header.Access-Control-Allow-Credentials" = true
+  }
+  depends_on = [aws_api_gateway_method.options_authors]
+}
 
-# resource "aws_api_gateway_integration" "options_authors" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.authors.id
-#   http_method = aws_api_gateway_method.options_authors.http_method
-#   type = "MOCK"
-#   depends_on = [aws_api_gateway_method.options_authors]
-# }
+resource "aws_api_gateway_integration" "options_authors" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.authors.id
+  http_method = aws_api_gateway_method.options_authors.http_method
+  type = "MOCK"
+  depends_on = [aws_api_gateway_method.options_authors]
+}
 
-# resource "aws_api_gateway_integration_response" "options_authors" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.authors.id
-#   http_method = aws_api_gateway_method.options_authors.http_method
-#   status_code = aws_api_gateway_method_response.options_authors.status_code
-#   response_parameters = {
-#     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
-#     "method.response.header.Access-Control-Allow-Methods" = "'GET,OPTIONS'",
-#     "method.response.header.Access-Control-Allow-Origin" = "'*'"
-#   }
-#   depends_on = [aws_api_gateway_method_response.options_authors]
-# }
+resource "aws_api_gateway_integration_response" "options_authors" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.authors.id
+  http_method = aws_api_gateway_method.options_authors.http_method
+  status_code = aws_api_gateway_method_response.options_authors.status_code
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+    "method.response.header.Access-Control-Allow-Methods" = "'GET,OPTIONS'",
+    "method.response.header.Access-Control-Allow-Origin" = "'*'"
+  }
+  depends_on = [aws_api_gateway_method_response.options_authors]
+}
 
 resource "aws_api_gateway_resource" "courses" {
   parent_id = aws_api_gateway_rest_api.this.root_resource_id
@@ -235,48 +235,48 @@ resource "aws_api_gateway_integration_response" "get_courses" {
   }
 }
 
-# resource "aws_api_gateway_method" "options_courses" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.courses.id
-#   http_method = "OPTIONS"
-#   authorization = "NONE"
-# }
+resource "aws_api_gateway_method" "options_courses" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.courses.id
+  http_method = "OPTIONS"
+  authorization = "NONE"
+}
 
-# resource "aws_api_gateway_method_response" "options_courses" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.courses.id
-#   http_method = aws_api_gateway_method.options_courses.http_method
-#   status_code = "200"
-#   response_models = { "application/json" = "Empty" }
-#   response_parameters = {
-#     "method.response.header.Access-Control-Allow-Origin" = true
-#     "method.response.header.Access-Control-Allow-Headers" = true
-#     "method.response.header.Access-Control-Allow-Methods" = true
-#     "method.response.header.Access-Control-Allow-Credentials" = true
-#   }
-#   depends_on = [aws_api_gateway_method.options_courses]
-# }
+resource "aws_api_gateway_method_response" "options_courses" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.courses.id
+  http_method = aws_api_gateway_method.options_courses.http_method
+  status_code = "200"
+  response_models = { "application/json" = "Empty" }
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Origin" = true
+    "method.response.header.Access-Control-Allow-Headers" = true
+    "method.response.header.Access-Control-Allow-Methods" = true
+    "method.response.header.Access-Control-Allow-Credentials" = true
+  }
+  depends_on = [aws_api_gateway_method.options_courses]
+}
 
-# resource "aws_api_gateway_integration" "options_courses" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.courses.id
-#   http_method = aws_api_gateway_method.options_courses.http_method
-#   type = "MOCK"
-#   depends_on = [aws_api_gateway_method.options_courses]
-# }
+resource "aws_api_gateway_integration" "options_courses" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.courses.id
+  http_method = aws_api_gateway_method.options_courses.http_method
+  type = "MOCK"
+  depends_on = [aws_api_gateway_method.options_courses]
+}
 
-# resource "aws_api_gateway_integration_response" "options_courses" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.courses.id
-#   http_method = aws_api_gateway_method.options_courses.http_method
-#   status_code = aws_api_gateway_method_response.options_courses.status_code
-#   response_parameters = {
-#     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
-#     "method.response.header.Access-Control-Allow-Methods" = "'GET,OPTIONS,POST,PUT'",
-#     "method.response.header.Access-Control-Allow-Origin" = "'*'"
-#   }
-#   depends_on = [aws_api_gateway_method_response.options_courses]
-# }
+resource "aws_api_gateway_integration_response" "options_courses" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.courses.id
+  http_method = aws_api_gateway_method.options_courses.http_method
+  status_code = aws_api_gateway_method_response.options_courses.status_code
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+    "method.response.header.Access-Control-Allow-Methods" = "'GET,OPTIONS,POST,PUT'",
+    "method.response.header.Access-Control-Allow-Origin" = "'*'"
+  }
+  depends_on = [aws_api_gateway_method_response.options_courses]
+}
 
 resource "aws_api_gateway_model" "post_course" {
   rest_api_id = aws_api_gateway_rest_api.this.id
@@ -361,48 +361,48 @@ resource "aws_api_gateway_resource" "course" {
   path_part = "{id}"
 }
 
-# resource "aws_api_gateway_method" "options_course" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.course.id
-#   http_method = "OPTIONS"
-#   authorization = "NONE"
-# }
+resource "aws_api_gateway_method" "options_course" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.course.id
+  http_method = "OPTIONS"
+  authorization = "NONE"
+}
 
-# resource "aws_api_gateway_method_response" "options_course" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.course.id
-#   http_method = aws_api_gateway_method.options_course.http_method
-#   status_code = "200"
-#   response_models = { "application/json" = "Empty" }
-#   response_parameters = {
-#     "method.response.header.Access-Control-Allow-Origin" = true
-#     "method.response.header.Access-Control-Allow-Headers" = true
-#     "method.response.header.Access-Control-Allow-Methods" = true
-#     "method.response.header.Access-Control-Allow-Credentials" = true
-#   }
-#   depends_on = [aws_api_gateway_method.options_course]
-# }
+resource "aws_api_gateway_method_response" "options_course" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.course.id
+  http_method = aws_api_gateway_method.options_course.http_method
+  status_code = "200"
+  response_models = { "application/json" = "Empty" }
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Origin" = true
+    "method.response.header.Access-Control-Allow-Headers" = true
+    "method.response.header.Access-Control-Allow-Methods" = true
+    "method.response.header.Access-Control-Allow-Credentials" = true
+  }
+  depends_on = [aws_api_gateway_method.options_course]
+}
 
-# resource "aws_api_gateway_integration" "options_course" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.course.id
-#   http_method = aws_api_gateway_method.options_course.http_method
-#   type = "MOCK"
-#   depends_on = [aws_api_gateway_method.options_course]
-# }
+resource "aws_api_gateway_integration" "options_course" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.course.id
+  http_method = aws_api_gateway_method.options_course.http_method
+  type = "MOCK"
+  depends_on = [aws_api_gateway_method.options_course]
+}
 
-# resource "aws_api_gateway_integration_response" "options_course" {
-#   rest_api_id = aws_api_gateway_rest_api.this.id
-#   resource_id = aws_api_gateway_resource.course.id
-#   http_method = aws_api_gateway_method.options_course.http_method
-#   status_code = aws_api_gateway_method_response.options_course.status_code
-#   response_parameters = {
-#     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
-#     "method.response.header.Access-Control-Allow-Methods" = "'GET,OPTIONS,POST,PUT'",
-#     "method.response.header.Access-Control-Allow-Origin" = "'*'"
-#   }
-#   depends_on = [aws_api_gateway_method_response.options_course]
-# }
+resource "aws_api_gateway_integration_response" "options_course" {
+  rest_api_id = aws_api_gateway_rest_api.this.id
+  resource_id = aws_api_gateway_resource.course.id
+  http_method = aws_api_gateway_method.options_course.http_method
+  status_code = aws_api_gateway_method_response.options_course.status_code
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+    "method.response.header.Access-Control-Allow-Methods" = "'GET,OPTIONS,POST,PUT'",
+    "method.response.header.Access-Control-Allow-Origin" = "'*'"
+  }
+  depends_on = [aws_api_gateway_method_response.options_course]
+}
 
 resource "aws_api_gateway_method" "put_course" {
   authorization = "NONE"

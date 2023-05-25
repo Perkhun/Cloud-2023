@@ -1,0 +1,1 @@
+export default "https://qrptr9j0g4.execute-api.eu-central-1.amazonaws.com/dev";
